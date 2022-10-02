@@ -1,0 +1,424 @@
+ <!DOCTYPE html>
+<!-- Template by html.am -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>ResearchBuzz Search Gizmos: Wikipedia GenderScanner</title>
+		<style type="text/css">
+			html, #page { padding:0; margin:0;}
+			body { margin:0; padding:0; width:100%; color:#959595; font:normal 12px/2.0em Sans-Serif;} 
+			h1, h2, h3, h4, h5, h6 {color:darkblue;}
+			#page { background:#fff;}
+			#header, #footer, #top-nav, #content, #content #contentbar, #content #sidebar { margin:0; padding:0;}
+						
+			/* Logo */
+			#logo { padding:0; width:auto; float:left;}
+			#logo h1 a, h1 a:hover { color:darkblue; text-decoration:none;}
+			#logo h1 span { color:#24592c;}
+
+			/* Header */
+			#header { background:#fff; }
+			#header-inner { margin:0 auto; padding:0; width:970px;}
+			
+			/* Feature */
+			.feature { background:blue;padding:18px;}
+			.feature-inner { margin:auto;width:970px; }
+			.feature-inner h1 {color:#E9E9FC;font-size:32px;}
+			
+			/* Menu */
+			#top-nav { margin:0 auto; padding:0px 0 0; height:37px; float:right;}
+			#top-nav ul { list-style:none; padding:0; height:37px; float:left;}
+			#top-nav ul li { margin:0; padding:0 0 0 8px; float:left;}
+			#top-nav ul li a { display:block; margin:0; padding:8px 20px; color:blue; text-decoration:none;}
+			#top-nav ul li.active a, #top-nav ul li a:hover { color:#d3d3f9;}
+			
+			/* Content */
+			#content-inner { margin:0 auto; padding:10px 0; width:970px;background:#fff;}
+			#content #contentbar { margin:0; padding:0; float:right; width:760px;}
+			#content #contentbar .article {  font-size: 1.25em; color: black; margin:0 0 24px; padding:0 20px 0 15px; }
+			#content #sidebar { background-color:#ECFFDC; padding:0; float:left; width:200px;}
+			#content #sidebar .widget { margin:0 0 12px; padding:8px 8px 8px 13px;line-height:1.4em;}
+			#content #sidebar .widget h3 a { text-decoration:none;}
+			#content #sidebar .widget ul { margin:0; padding:0; list-style:none; color:#959595;}
+			#content #sidebar .widget ul li { margin:0;}
+			#content #sidebar .widget ul li { padding:4px 0; width:185px;}
+			#content #sidebar .widget ul li a {font-size: 1.25em; color:black; text-decoration:none; margin-left:-16px; padding:4px 8px 4px 16px;}
+			#content #sidebar .widget ul li a:hover { color:#d3d3f9; font-weight:bold; text-decoration:none;}
+			
+			/* Footerblurb */
+			#footerblurb { background:#d3d3f9;color:blue;}
+			#footerblurb-inner { margin:0 auto; width:922px; padding:24px;}
+			#footerblurb .column { margin:0; text-align:justify; float:left;width:250px;padding:0 24px;}
+			
+			/* Footer */
+			#footer { background:#fff;}
+			#footer-inner { margin:auto; text-align:center; padding:12px; width:922px;}
+			#footer a {color:blue;text-decoration:none;}
+			
+			/* Clear both sides to assist with div alignment  */
+			.clr { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px;}
+		</style>
+		
+
+	</head>
+	<body>
+		<div id="page">
+			<header id="header">
+				<div id="header-inner">	
+					<div id="logo">
+						<h1><a href="#">ResearchBuzz<span>Search Gizmos</span></a></h1>
+					</div>
+					<div id="top-nav">
+						<ul>
+						<li><a href="https://github.com/ResearchBuzz">ResearchBuzz GitHub Home</a></li>
+						<li><a href="https://www.researchbuzz.me">ResearchBuzz Main Site</a></li>
+						<li><a href="https://www.rbfirehose.com">ResearchBuzz Firehose</a></li>
+						</ul>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</header>
+			<div class="feature">
+				<div class="feature-inner">
+				<h1>Wikipedia Gender Scanner </h1>
+				</div>
+			</div>
+		
+	
+			<div id="content">
+				<div id="content-inner">
+				
+					<main id="contentbar">
+						<div class="article">
+	
+
+   <h3>The Wikipedia Gender Scanner lets you specify a category and get the genders of the first 50 people in that category.</h3>
+
+    <h4>Enter a category in the form below. Please note that the category must be in Wikipedia's format, like this: <b>Category:English_explorers</b>. You'll find that category format as part of a Wikipedia URL: 
+    <b>https://en.wikipedia.org/wiki/Category:English_explorers</b>. If you can't think of any categories, here are some ideas: <b>Category:French_rock_singers</b>, <b>Category:Fictional_physicists</b>, or <b>Category:15th-century_Spanish_painters</b>.</h4>
+
+<label>Wikipedia Category You Want to Scan</label>
+  <input type="text" class="categoryq" value="Category:Asian-American_drag_queens"><br><br> 
+
+<button onclick="wgs()">Scan the category</button><br><br>
+
+<div id="results"></div>
+
+<div id="chart"></div>
+
+
+
+
+
+				<br><br>
+
+
+
+					</main>
+					
+						<nav id="sidebar">
+						<div class="widget">
+							<h3>Gizmo Categories</h3>
+
+							<ul>
+							<li><a href="https://researchbuzz.github.io/Google.html">Google Search Tools</a></li>
+							<li><a href="https://researchbuzz.github.io/Twitter.html">Twitter Search Tools</a></li>
+							<li><a href="https://researchbuzz.github.io/News.html">News Search Tools</a></li>
+							<li><a href="https://researchbuzz.github.io/Blog.html">Blog Search Tools</a></li>
+							<li><a href="https://researchbuzz.github.io/Name.html">Name Search Tools</a></li>
+<li><a href="https://researchbuzz.github.io/OSINT.html">Search with OSINT Data</a></li>
+<li><a href="https://researchbuzz.github.io/notGithub.html">Random Gizmos Not on GitHub</a></li>
+
+
+							</ul>
+
+<br><br><a href="https://researchbuzz.github.io/">RB Search Gizmos Home</a><br><br>
+						</div>
+					</nav>
+					
+					<div class="clr"></div>
+				</div>
+			</div>
+		
+			<div id="footerblurb">
+				<div id="footerblurb-inner">
+				
+					<div class="column">
+						<h2><span>What Is This?</span></h2>
+						<p>The RB Gizmos are a collection of search tools made with JavaScript and HTML.</p>
+					</div>	
+					<div class="column">
+						<h2><span>Why Is This?</span></h2>
+						<p>Because I've been writing about searching and search engines since 1996 and I'm obsessed with them.</p>
+					</div>
+					<div class="column">
+						<h2> </h2>
+						<p><script> </script></p>
+					</div>	
+					
+					<div class="clr"></div>
+				</div>
+			</div>
+			<footer id="footer">
+				<div id="footer-inner">
+					
+					<div class="clr"></div>
+				</div>
+			</footer>
+
+
+
+		</div>
+
+
+
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script>
+function wgs(){
+var categoryq = document.querySelector('.categoryq').value;
+console.log(categoryq);
+var catcheck = categoryq.slice(0, 9);
+console.log('Catcheck', catcheck);
+
+if (catcheck === 'Category:') {
+} else {
+  alert(
+    'This tool requires a Wikipedia category to use, not a page. Make sure the category name is prefaced with "Category:"'
+  );
+}
+
+var api =
+  'https://en.wikipedia.org/w/api.php?action=query&origin=*&list=categorymembers&cmtitle=' +
+  categoryq +
+  '&cmlimit=50&cmtype=page&cmprop=ids&format=json';
+let fetchees = [];
+
+fetch(api)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (res) {
+    mapdata = res;
+    console.log('Mapdata', mapdata);
+    var find = mapdata.query.categorymembers;
+    var loopstart = 0;
+    var loopend = find.length;
+    var searchstring = '';
+
+    while (loopstart < loopend) {
+      var wpageid = find[loopstart].pageid;
+      fetchees.push(wpageid);
+      searchstring = searchstring + wpageid + '|';
+
+      loopstart++;
+    }
+
+    searchstring = searchstring.slice(0, -1);
+
+    searchurl =
+      'https://en.wikipedia.org/w/api.php?action=query&prop=pageprops&ppprop=wikibase_item&origin=*&format=json&pageids=' +
+      searchstring;
+
+    console.log(searchurl);
+
+    console.log('Fetchees', fetchees);
+    console.log('Searchstring', searchstring);
+
+    fetch(searchurl)
+      .then(response => response.json())
+      .then(twodata => {
+        console.log('TWodata', twodata);
+
+        loopstart = 0;
+        loopend = fetchees.length;
+        searchstring2 = '';
+        let pageprops = [];
+
+        while (loopstart < loopend) {
+          var idpage = fetchees[loopstart];
+          idpage = Number(idpage);
+          // var pageprop = twodata.query.pages[idpage]
+          let pageprop = twodata.query.pages[idpage].pageprops;
+          if (pageprop) {
+            pageprops.push(pageprop);
+          } else {
+            console.log('boo');
+          }
+          loopstart++;
+        }
+
+        loopstart = 0;
+        loopend = pageprops.length;
+        let qpages = [];
+
+        while (loopstart < loopend) {
+          var qpage = pageprops[loopstart].wikibase_item;
+          qpages.push(qpage);
+          loopstart++;
+        }
+
+        //console.log('Qpages', qpages);
+
+        loopstart = 0;
+        loopend = qpages.length;
+        while (loopstart < loopend) {
+          searchstring2 = searchstring2 + qpages[loopstart] + '|';
+          loopstart++;
+        }
+
+        searchstring2 = searchstring2.slice(0, -1);
+        console.log(searchstring2);
+
+        var wikidata =
+          'https://www.wikidata.org/w/api.php?action=wbgetentities&origin=*&format=json&ids=' +
+          searchstring2;
+        // var wikidata = "https://www.wikidata.org/w/api.php?action=wbgetentities&origin=*&format=json&ids=Q105023173"
+
+        var qdatatest = ['Q105023173', 'Q104843273'];
+
+        console.log(wikidata);
+
+        fetch(wikidata)
+          .then(response => response.json())
+          .then(threedata => {
+            console.log('threedata', threedata);
+            const entries = Object.entries(threedata.entities);
+            console.log(entries.length);
+
+            loopstart = 0;
+            loopend = entries.length;
+            // loopend = 5
+            let genderlist = [];
+            let males = [];
+            let females = [];
+            let intersex = [];
+            let nonbinary = [];
+            let tgfemales = [];
+            let tgmales = [];
+            let unknown = [];
+
+            while (loopstart < loopend) {
+              var pagegrab = entries[loopstart];
+              //console.log(pagegrab)
+              const bigstring = JSON.stringify(pagegrab);
+              let gornot = bigstring.search('"P21"');
+              //          console.log('Gender?', gornot);
+              if (gornot > 0) {
+                var qid = pagegrab[1].claims.P21[0].mainsnak.datavalue.value.id;
+              } else {
+                qid = 'Q0000';
+              }
+              // console.log("qid",qid)
+              genderlist.push(qid);
+
+              if (qid === 'Q6581097') {
+                males.push(qid);
+              } else if (qid === 'Q6581072') {
+                females.push(qid);
+              } else if (qid === 'Q1097630') {
+                intersex.push(qid);
+              } else if (qid === 'Q1052281') {
+                tgfemales.push(qid);
+              } else if (qid === 'Q2449503') {
+                tgmales.push(qid);
+              } else if (qid === 'Q0000') {
+                unknown.push(qid);
+              } else {
+                nonbinary.push(qid);
+              }
+
+              // console.log("okay")
+              loopstart++;
+            }
+
+            var malec = males.length;
+            console.log('Males', malec);
+            var femalec = females.length;
+            console.log('Females', femalec);
+            var intersexc = intersex.length;
+            console.log('Intersex', intersexc);
+            var tgfc = tgfemales.length;
+            console.log('Trans Women', tgfc);
+            var tgmc = tgmales.length;
+            console.log('Trans Men', tgmc);
+            var nbc = nonbinary.length;
+            console.log('Non-Binary', nbc);
+            var unknownc = unknown.length;
+            console.log('Unknown/Unlisted', unknownc);
+
+            var totalcounts = malec + femalec + intersexc + tgfc + tgmc + nbc;
+            var malep = (malec / totalcounts) * 100;
+            malep = malep.toFixed(2);
+            var femalep = (femalec / totalcounts) * 100;
+            femalep = femalep.toFixed(2);
+            var intersexp = (intersexc / totalcounts) * 100;
+            intersexp = intersexp.toFixed(2);
+            var tgfp = (tgfc / totalcounts) * 100;
+            tgfp = tgfp.toFixed(2);
+            var tgmp = (tgmc / totalcounts) * 100;
+            tgmp = tgmp.toFixed(2);
+            var nbp = (nbc / totalcounts) * 100;
+            nbp = nbp.toFixed(2)
+
+            console.log('Male Percentages', malep);
+            console.log('Female Percentages', femalep);
+            console.log('Intersex Percentages', intersexp);
+            console.log('Trans Women Percentage', tgfp);
+            console.log("Trans Men Percentages", tgmp)
+            console.log("Non-Binary Percentages",nbp)
+
+            console.log('Totalcounts', totalcounts);
+
+var results = "<h3>Gender Scanning "+categoryq+"</h3><h4>"+totalcounts+" people found</h4>Males: "+malec+" ("+malep+"%)<br><br>Females: "+femalec+" ("+femalep+"%)<br><br>Intersex: "+intersexc+" ("+intersexp+"%)<br><br>Trans Women: "+tgfc+" ("+tgfp+"%)<br><br>Trans Men: "+tgmc+" ("+tgmp+"%)<br><br>Non-Binary: "+nbc+" ("+nbp+"%)<br><br>"
+console.log(results)
+
+var Rdiv = document.getElementById("results")
+Rdiv.innerHTML = results
+
+  // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Gender');
+        data.addColumn('number', 'Number');
+        data.addRows([
+          ['Men', malec],
+          ['Women', femalec],
+          ['Intersex', intersexc],
+          ['TransWomen', tgfc],
+          ['TransMen', tgmc],
+          ['Non-Binary', nbc],
+        ]);
+
+        // Set chart options
+        var options = {'title': categoryq,
+                       'width':600,
+                       'height':400};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart'));
+        chart.draw(data, options);
+      }
+
+
+
+
+
+
+          });
+      });
+  });
+
+}
+   </script>
+</body>
+</html>
